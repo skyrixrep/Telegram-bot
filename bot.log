@@ -1,0 +1,117 @@
+2026-06-07 16:13:42,257 - main_optimized - INFO - Starting AetherX ⚡🌟 Bot (Optimized Version)...
+2026-06-07 16:13:45,074 - main_optimized - INFO - Bot is now polling for updates. Press Ctrl+C to stop.
+2026-06-07 16:13:46,829 - main_optimized - INFO - Bot commands have been set
+2026-06-07 16:13:46,880 - database_pool - INFO - Database pool initialized with 2 connections
+2026-06-07 16:13:46,896 - database_pool - INFO - Database setup complete with optimized indexes
+2026-06-07 16:13:46,900 - main_optimized - INFO - Database initialized with connection pool
+2026-06-07 16:13:46,908 - main_optimized - INFO - Admin user 6632159196 ensured in database
+2026-06-07 16:13:47,297 - core.session_pool - INFO - Session pool initialized with 3 sessions
+2026-06-07 16:13:47,536 - main_optimized - INFO - HTTP session pool initialized
+2026-06-07 16:13:47,537 - main_optimized - INFO - Auto health check started
+2026-06-07 16:13:55,373 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 16:14:55,315 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 16:15:31,889 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 16:20:05,212 - main_optimized - INFO - Starting AetherX ⚡🌟 Bot (Optimized Version)...
+2026-06-07 16:20:08,052 - main_optimized - INFO - Bot is now polling for updates. Press Ctrl+C to stop.
+2026-06-07 16:20:09,662 - main_optimized - INFO - Bot commands have been set
+2026-06-07 16:20:09,719 - database_pool - INFO - Database pool initialized with 2 connections
+2026-06-07 16:20:09,736 - database_pool - INFO - Database setup complete with optimized indexes
+2026-06-07 16:20:09,736 - main_optimized - INFO - Database initialized with connection pool
+2026-06-07 16:20:09,736 - main_optimized - INFO - Admin user 6632159196 ensured in database
+2026-06-07 16:20:10,063 - core.session_pool - INFO - Session pool initialized with 3 sessions
+2026-06-07 16:20:10,066 - main_optimized - INFO - HTTP session pool initialized
+2026-06-07 16:20:10,066 - main_optimized - INFO - Auto health check started
+2026-06-07 16:20:18,022 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 16:20:39,808 - core.claude_health_checker - INFO - Claude Health Check: Testing cookies: ['__ssid', '_fbp', 'anthropic-consent-preferences', 'ARID', 'routingHint', 'g_state', 'sessionKey', 'sessionKeyLC', '__stripe_mid', '_cfuvid', 'CH-prefers-color-scheme', '_gcl_au', 'activitySessionId', 'ajs_anonymous_id', 'lastActiveOrg', 'anthropic-device-id', 'cf_clearance', 'intercom-device-id-lupk8zyo', 'intercom-session-lupk8zyo', 'user-sidebar-visible-on-load', 'user-sidebar-pinned', '_dd_s']
+2026-06-07 16:27:55,226 - main_optimized - INFO - Starting AetherX ⚡🌟 Bot (Optimized Version)...
+2026-06-07 16:27:58,307 - main_optimized - INFO - Bot is now polling for updates. Press Ctrl+C to stop.
+2026-06-07 16:28:02,686 - main_optimized - INFO - Bot commands have been set
+2026-06-07 16:28:02,739 - database_pool - INFO - Database pool initialized with 2 connections
+2026-06-07 16:28:02,752 - database_pool - INFO - Database setup complete with optimized indexes
+2026-06-07 16:28:02,752 - main_optimized - INFO - Database initialized with connection pool
+2026-06-07 16:28:02,762 - main_optimized - INFO - Admin user 6632159196 ensured in database
+2026-06-07 16:28:03,119 - core.session_pool - INFO - Session pool initialized with 3 sessions
+2026-06-07 16:28:03,131 - main_optimized - INFO - HTTP session pool initialized
+2026-06-07 16:28:03,131 - main_optimized - INFO - Auto health check started
+2026-06-07 16:28:05,408 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 16:28:16,520 - core.claude_health_checker - INFO - Claude Health Check: Testing cookies: ['__ssid', '_fbp', 'anthropic-consent-preferences', 'ARID', 'routingHint', 'g_state', 'sessionKey', 'sessionKeyLC', '__stripe_mid', '_cfuvid', 'CH-prefers-color-scheme', '_gcl_au', 'activitySessionId', 'ajs_anonymous_id', 'lastActiveOrg', 'anthropic-device-id', 'cf_clearance', 'intercom-device-id-lupk8zyo', 'intercom-session-lupk8zyo', 'user-sidebar-visible-on-load', 'user-sidebar-pinned', '_dd_s']
+2026-06-07 16:29:43,525 - core.claude_health_checker - INFO - Claude Health Check: Testing cookies: ['__ssid', 'g_state', '_fbp', '__hstc', 'cookie_seed_done', 'hubspotutk', 'app-shell-mode', '__stripe_mid', 'intercom-device-id-lupk8zyo', 'anthropic-consent-preferences', '_dd_s', 'sessionKey', 'sessionKeyLC', 'cf_clearance', 'CH-prefers-color-scheme', 'anthropic-device-id', '_gcl_au', 'user-sidebar-visible-on-load', 'lastActiveOrg', 'user-sidebar-pinned']
+2026-06-07 16:34:54,248 - main_optimized - INFO - Starting AetherX ⚡🌟 Bot (Optimized Version)...
+2026-06-07 16:34:57,266 - main_optimized - INFO - Bot is now polling for updates. Press Ctrl+C to stop.
+2026-06-07 16:34:59,098 - main_optimized - INFO - Bot commands have been set
+2026-06-07 16:34:59,150 - database_pool - INFO - Database pool initialized with 2 connections
+2026-06-07 16:34:59,167 - database_pool - INFO - Database setup complete with optimized indexes
+2026-06-07 16:34:59,167 - main_optimized - INFO - Database initialized with connection pool
+2026-06-07 16:34:59,182 - main_optimized - INFO - Admin user 6632159196 ensured in database
+2026-06-07 16:34:59,548 - core.session_pool - INFO - Session pool initialized with 3 sessions
+2026-06-07 16:34:59,548 - main_optimized - INFO - HTTP session pool initialized
+2026-06-07 16:34:59,548 - main_optimized - INFO - Auto health check started
+2026-06-07 16:35:07,467 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 16:35:24,350 - core.claude_health_checker - INFO - Claude Health Check: Testing cookies: ['__ssid', 'g_state', '_fbp', '__hstc', 'cookie_seed_done', 'hubspotutk', 'app-shell-mode', '__stripe_mid', 'intercom-device-id-lupk8zyo', 'anthropic-consent-preferences', '_dd_s', 'sessionKey', 'sessionKeyLC', 'cf_clearance', 'CH-prefers-color-scheme', 'anthropic-device-id', '_gcl_au', 'user-sidebar-visible-on-load', 'lastActiveOrg', 'user-sidebar-pinned']
+2026-06-07 16:41:59,597 - __main__ - INFO - Starting AetherX ⚡🌟 Bot (Optimized Version)...
+2026-06-07 16:42:02,480 - __main__ - INFO - Bot is now polling for updates. Press Ctrl+C to stop.
+2026-06-07 16:42:04,198 - __main__ - INFO - Bot commands have been set
+2026-06-07 16:42:04,245 - database_pool - INFO - Database pool initialized with 2 connections
+2026-06-07 16:42:04,258 - database_pool - INFO - Database setup complete with optimized indexes
+2026-06-07 16:42:04,262 - __main__ - INFO - Database initialized with connection pool
+2026-06-07 16:42:04,266 - __main__ - INFO - Admin user 6632159196 ensured in database
+2026-06-07 16:42:04,597 - core.session_pool - INFO - Session pool initialized with 3 sessions
+2026-06-07 16:42:04,597 - __main__ - INFO - HTTP session pool initialized
+2026-06-07 16:42:04,597 - __main__ - INFO - Auto health check started
+2026-06-07 16:42:18,715 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 16:42:31,702 - core.claude_health_checker - INFO - Claude Health Check: Testing cookies: ['__ssid', 'g_state', '_fbp', '__hstc', 'cookie_seed_done', 'hubspotutk', 'app-shell-mode', '__stripe_mid', 'intercom-device-id-lupk8zyo', 'anthropic-consent-preferences', '_dd_s', 'sessionKey', 'sessionKeyLC', 'cf_clearance', 'CH-prefers-color-scheme', 'anthropic-device-id', '_gcl_au', 'user-sidebar-visible-on-load', 'lastActiveOrg', 'user-sidebar-pinned']
+2026-06-07 16:52:04,549 - __main__ - INFO - Starting AetherX ⚡🌟 Bot (Optimized Version)...
+2026-06-07 16:52:07,065 - __main__ - INFO - Bot is now polling for updates. Press Ctrl+C to stop.
+2026-06-07 16:52:08,734 - __main__ - INFO - Bot commands have been set
+2026-06-07 16:52:08,781 - database_pool - INFO - Database pool initialized with 2 connections
+2026-06-07 16:52:08,782 - database_pool - INFO - Database setup complete with optimized indexes
+2026-06-07 16:52:08,782 - __main__ - INFO - Database initialized with connection pool
+2026-06-07 16:52:08,782 - __main__ - INFO - Admin user 6632159196 ensured in database
+2026-06-07 16:52:09,065 - core.session_pool - INFO - Session pool initialized with 3 sessions
+2026-06-07 16:52:09,065 - __main__ - INFO - HTTP session pool initialized
+2026-06-07 16:52:09,065 - __main__ - INFO - Auto health check started
+2026-06-07 16:52:16,056 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 16:52:46,016 - core.chatgpt_health_checker - INFO - ChatGPT Health Check: Testing cookies: ['__Secure-next-auth.callback-url', 'g_state', 'oai-did', 'oai-chat-web-route', '__Host-next-auth.csrf-token', 'cf_clearance', '__Secure-next-auth.session-token.1', '__Secure-next-auth.session-token.0', '_puid', 'oai-allow-ne', 'oai-client-auth-info', 'oai-gn', 'oai_consent_analytics', 'oai_consent_marketing', 'oai-hlib', 'oai_consent_personalization', '_cfuvid', '__cf_bm', '__cflb', '_umsid', '_uasid', 'oai-nav-state', '__Secure-oai-is', '_dd_s', 'oai-sc']
+2026-06-07 16:52:49,251 - handlers.files_optimized - INFO - [DEBUG] mode=chatgpt_check, success=True, result_type=ChatGPTValidationResult, result_is_none=False
+2026-06-07 16:52:51,818 - core.chatgpt_health_checker - INFO - ChatGPT Health Check: Testing cookies: ['g_state', 'oai-hlib', 'oai-did', '__Secure-next-auth.session-token.1', 'oai-allow-ne', 'oai-chat-web-route', 'oai_consent_analytics', 'oai_consent_marketing', 'oai_consent_personalization', '__Secure-next-auth.session-token.0', 'cf_clearance', '_account_is_fedramp', '_puid', 'oai-client-auth-info', 'oai-sc', '__cf_bm', '__Secure-oai-is', '__cflb', '_dd_s']
+2026-06-07 16:52:53,985 - handlers.files_optimized - INFO - [DEBUG] mode=chatgpt_check, success=True, result_type=ChatGPTValidationResult, result_is_none=False
+2026-06-07 16:52:56,817 - core.chatgpt_health_checker - INFO - ChatGPT Health Check: Testing cookies: ['g_state', 'oai-did', 'oai-hlib', 'oai-allow-ne', 'oai_consent_analytics', 'oai_consent_marketing', 'oai_consent_personalization', 'conv_key_6a1973f5-443c-83e8-93b0-800185733d76', 'conv_key_6a1988c3-00dc-83ec-a880-e5a42dc329f1', 'conv_key_6a1ac5e5-5a68-83ec-a085-c0a1fc45f6fc', 'oai-chat-web-route', '_account_is_fedramp', '_puid', '__Secure-next-auth.session-token.1', 'oai-last-model-config', 'oai-client-auth-info', 'cf_clearance', '__Secure-next-auth.session-token.0', 'conv_key_6a1cafdf-03f0-83ec-8cd2-075e732341e4', 'oai-sc', '__cf_bm', '__cflb', '__Secure-oai-is', '_dd_s']
+2026-06-07 16:52:59,763 - handlers.files_optimized - INFO - [DEBUG] mode=chatgpt_check, success=True, result_type=ChatGPTValidationResult, result_is_none=False
+2026-06-07 16:53:03,246 - core.chatgpt_health_checker - INFO - ChatGPT Health Check: Testing cookies: ['g_state', 'oai-did', 'oai-allow-ne', 'oai-hlib', 'oai_consent_analytics', 'oai_consent_marketing', 'oai_consent_personalization', 'oai-nav-state', '__Host-next-auth.csrf-token', '__Secure-next-auth.callback-url', '__Secure-next-auth.session-token.0', '__Secure-next-auth.session-token.1', '_account_is_fedramp', '_puid', 'oai-chat-web-route', 'oai-client-auth-info', 'oai-last-model-config', 'cf_clearance', '__Secure-oai-is', '_cfuvid', 'oai-sc', '_dd_s']
+2026-06-07 16:53:05,277 - handlers.files_optimized - INFO - [DEBUG] mode=chatgpt_check, success=True, result_type=ChatGPTValidationResult, result_is_none=False
+2026-06-07 16:53:07,804 - core.chatgpt_health_checker - INFO - ChatGPT Health Check: Testing cookies: ['oai-did', 'oai-chat-web-route', 'g_state', 'oai-hlib', '__Secure-next-auth.session-token.0', '__Secure-next-auth.session-token.1', '__Secure-oai-is', '_account_is_fedramp', 'oai-client-auth-info', 'oai-sc', 'cf_clearance', '_dd_s']
+2026-06-07 16:53:12,311 - handlers.files_optimized - INFO - [DEBUG] mode=chatgpt_check, success=True, result_type=ChatGPTValidationResult, result_is_none=False
+2026-06-07 16:53:14,840 - core.chatgpt_health_checker - INFO - ChatGPT Health Check: Testing cookies: ['oai-did', 'oai-hlib', '_ga', '_ga_9SHBSK2D9J', 'oai-chat-web-route', 'cf_clearance', '_puid', '_account_is_fedramp', 'oai-client-auth-info', 'oai-nav-state', 'oai-sc', '__Secure-next-auth.session-token.0', '__Secure-next-auth.session-token.1', '__Secure-oai-is', '_dd_s']
+2026-06-07 16:53:19,668 - handlers.files_optimized - INFO - [DEBUG] mode=chatgpt_check, success=True, result_type=ChatGPTValidationResult, result_is_none=False
+2026-06-07 16:53:21,951 - core.chatgpt_health_checker - INFO - ChatGPT Health Check: Testing cookies: ['oai-did', 'oai-hlib', '__Host-next-auth.csrf-token', '__Secure-next-auth.callback-url', 'oai-sidebar-sections', 'oai-allow-ne', 'oai_consent_analytics', 'oai_consent_marketing', 'oai_consent_personalization', 'oai-nav-state', '_cfuvid', '__cflb', 'oai-chat-web-route', '__cf_bm', 'cf_clearance', '_umsid', '_uasid', '_account_is_fedramp', '__Secure-next-auth.session-token.0', '__Secure-next-auth.session-token.1', '_puid', 'oai-sc', 'oai-client-auth-info', '_dd_s', '__Secure-oai-is']
+2026-06-07 16:53:24,149 - handlers.files_optimized - INFO - [DEBUG] mode=chatgpt_check, success=True, result_type=ChatGPTValidationResult, result_is_none=False
+2026-06-07 16:53:39,445 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 16:53:57,036 - core.claude_health_checker - INFO - Claude Health Check: Testing cookies: ['__ssid', 'g_state', '_fbp', '__hstc', 'cookie_seed_done', 'hubspotutk', 'app-shell-mode', '__stripe_mid', 'intercom-device-id-lupk8zyo', 'anthropic-consent-preferences', '_dd_s', 'sessionKey', 'sessionKeyLC', 'cf_clearance', 'CH-prefers-color-scheme', 'anthropic-device-id', '_gcl_au', 'user-sidebar-visible-on-load', 'lastActiveOrg', 'user-sidebar-pinned']
+2026-06-07 17:01:09,000 - main_optimized - INFO - Starting AetherX ⚡🌟 Bot (Optimized Version)...
+2026-06-07 17:01:11,566 - main_optimized - INFO - Bot is now polling for updates. Press Ctrl+C to stop.
+2026-06-07 17:01:12,833 - main_optimized - INFO - Bot commands have been set
+2026-06-07 17:01:12,866 - database_pool - INFO - Database pool initialized with 2 connections
+2026-06-07 17:01:12,866 - database_pool - INFO - Database setup complete with optimized indexes
+2026-06-07 17:01:12,866 - main_optimized - INFO - Database initialized with connection pool
+2026-06-07 17:01:12,883 - main_optimized - INFO - Admin user 6632159196 ensured in database
+2026-06-07 17:01:13,200 - core.session_pool - INFO - Session pool initialized with 3 sessions
+2026-06-07 17:01:13,200 - main_optimized - INFO - HTTP session pool initialized
+2026-06-07 17:01:13,200 - main_optimized - INFO - Auto health check started
+2026-06-07 17:01:32,434 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 17:02:03,732 - handlers.files_optimized - INFO - [DEBUG] mode=spotify_check, success=False, result_type=NoneType, result_is_none=True
+2026-06-07 17:03:05,537 - core.spotify_health_checker - INFO - Spotify Health Check: Testing cookies: ['OptanonConsent', '_ga_S35RN5WNT2', '_ga_ZWG1NSHWD8', '_scid_r', 'sp_t', '_sctr', '_cs_mk_ga', '_ga', '_ga_BMC5VGR8YS', '_gat_UA-5784146-31', '_gcl_au', '_gid', '_scid', 'AMP_5048e0c51e', 'sp_dc', 'sp_gaid', 'sp_key', 'sp_landing', 'sp_landingref', 'sp_last_utm']
+2026-06-07 17:03:11,404 - handlers.files_optimized - INFO - [DEBUG] mode=spotify_check, success=True, result_type=SpotifyValidationResult, result_is_none=False
+2026-06-07 17:03:32,038 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 17:03:55,506 - core.claude_health_checker - INFO - Claude Health Check: Testing cookies: ['__ssid', '_fbp', 'anthropic-consent-preferences', 'ARID', 'routingHint', 'g_state', 'sessionKey', 'sessionKeyLC', '__stripe_mid', '_cfuvid', 'CH-prefers-color-scheme', '_gcl_au', 'activitySessionId', 'ajs_anonymous_id', 'lastActiveOrg', 'anthropic-device-id', 'cf_clearance', 'intercom-device-id-lupk8zyo', 'intercom-session-lupk8zyo', 'user-sidebar-visible-on-load', 'user-sidebar-pinned', '_dd_s']
+2026-06-07 17:08:26,051 - main_optimized - INFO - Starting AetherX ⚡🌟 Bot (Optimized Version)...
+2026-06-07 17:08:28,548 - main_optimized - INFO - Bot is now polling for updates. Press Ctrl+C to stop.
+2026-06-07 17:08:29,681 - main_optimized - INFO - Bot commands have been set
+2026-06-07 17:08:29,710 - database_pool - INFO - Database pool initialized with 2 connections
+2026-06-07 17:08:29,715 - database_pool - INFO - Database setup complete with optimized indexes
+2026-06-07 17:08:29,715 - main_optimized - INFO - Database initialized with connection pool
+2026-06-07 17:08:29,715 - main_optimized - INFO - Admin user 6632159196 ensured in database
+2026-06-07 17:08:29,998 - core.session_pool - INFO - Session pool initialized with 3 sessions
+2026-06-07 17:08:29,998 - main_optimized - INFO - HTTP session pool initialized
+2026-06-07 17:08:29,998 - main_optimized - INFO - Auto health check started
+2026-06-07 17:08:39,032 - handlers.user_commands - INFO - User 6632159196 (root.exe) used /start.
+2026-06-07 17:08:47,632 - core.claude_health_checker - INFO - Claude Health Check: Testing cookies: ['__ssid', '_fbp', 'anthropic-consent-preferences', 'ARID', 'routingHint', 'g_state', 'sessionKey', 'sessionKeyLC', '__stripe_mid', '_cfuvid', 'CH-prefers-color-scheme', '_gcl_au', 'activitySessionId', 'ajs_anonymous_id', 'lastActiveOrg', 'anthropic-device-id', 'cf_clearance', 'intercom-device-id-lupk8zyo', 'intercom-session-lupk8zyo', 'user-sidebar-visible-on-load', 'user-sidebar-pinned', '_dd_s']

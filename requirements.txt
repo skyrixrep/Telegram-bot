@@ -1,0 +1,9 @@
+# AetherX Optimized Bot Requirements
+aiosqlite==0.21.0
+cloudscraper==1.2.71
+nest_asyncio==1.6.0
+python-telegram-bot==22.1
+Requests==2.32.4
+urllib3==2.5.0
+
+curl-cffi==0.7.4
