@@ -30,7 +30,7 @@ MAX_FILES_IN_ZIP = 99999999
 MAX_CONCURRENT_WORKERS = (os.cpu_count() or 1) + 4
 
 # --- Rate Limiting Configuration ---
-MAX_COOKIES_PER_USER = 80
+MAX_COOKIES_PER_USER = 5000
 RATE_LIMIT_WINDOW_MINUTES = 4
 
 # --- Database Configuration ---
