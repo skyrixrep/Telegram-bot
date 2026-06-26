@@ -70,3 +70,12 @@ MAX_RETRIES = 3
 # --- (Optional) Notifications Bot ---
 # Second bot token for admin notifications (optional)
 NOTIFICATION_BOT_TOKEN = None
+
+# --- Nettrix: Netflix Profile Email Adder ---
+# GraphQL endpoint for AleProvision + UpdateProfileEmail mutations
+NF_EMAIL_GRAPHQL_URL     = "https://web.prod.cloud.netflix.com/graphql"
+# Netflix client app-version header (update if Netflix rotates this)
+NF_EMAIL_APP_VERSION     = "v9833b8f0"
+# Persisted-query IDs (obtained from Netflix HAR capture)
+NF_EMAIL_ALE_PROVISION_ID = "40fdbbd2-af28-4962-bb30-e0025648e2de"
+NF_EMAIL_UPDATE_ID        = "82b766d2-badb-4ac3-9538-404cf0fd4917"

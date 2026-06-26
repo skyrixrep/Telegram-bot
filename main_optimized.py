@@ -47,6 +47,8 @@ import database_pool as db
 from handlers import admin, callbacks, user_commands
 from handlers.files_optimized import handle_document_optimized
 from handlers.tv_commands import tv_command, upload_command, vault_command
+from handlers.nettrix_handler import build_nettrix_handler
+from core.netflix_profile_email import start_rsa_pool
 from ui import ERROR_FALLBACK_TEXT
 from health_check import health_command, auto_health_check
 from core.session_pool import session_pool, response_cache
@@ -87,6 +89,7 @@ async def post_init(app: Application):
             ("locked", "🔒 Only authorized users (Admin only)"),
             ("2fac", "🔒 Toggle public access mode (Admin only)"),
             ("manager", "👤 Add a manager user"),
+            ("nettrix", "🎬 Add email to a Netflix profile"),
         ]
         await app.bot.set_my_commands(bot_commands)
         logger.info("Bot commands have been set")
@@ -102,6 +105,10 @@ async def post_init(app: Application):
         # Initialize session pool
         await session_pool.initialize()
         logger.info("HTTP session pool initialized")
+
+        # Start Nettrix RSA key pre-generator (keeps RSA-2048 keys ready for instant provisioning)
+        start_rsa_pool()
+        logger.info("Nettrix RSA key pool started")
         
         # Store helper functions in bot data
         app.bot_data['notify_admin'] = lambda msg: notify_admin(msg, app)
@@ -302,12 +309,17 @@ async def main():
             CommandHandler("vault", vault_command, filters=admin_filter)
         )
         
+        # Nettrix: Netflix Profile Email Adder conversation
+        # Must be registered BEFORE the generic Document/text handlers so its
+        # MessageHandler states intercept messages while the conversation is active.
+        application.add_handler(build_nettrix_handler())
+
         # Callback and file handlers
         application.add_handler(CallbackQueryHandler(callbacks.button_callback_handler))
         application.add_handler(
             MessageHandler(filters.Document.ALL, handle_document_optimized)
         )
-        
+
         # Generic text handler
         application.add_handler(
             MessageHandler(
