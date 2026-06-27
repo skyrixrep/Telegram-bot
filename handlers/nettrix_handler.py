@@ -382,6 +382,12 @@ async def nettrix_receive_confirm(update: Update, context: ContextTypes.DEFAULT_
                 parse_mode="Markdown",
             )
 
+    except asyncio.TimeoutError:
+        await _safe_reply(
+            update.message,
+            "❌ Netflix took too long to respond. Send /nettrix to try again.",
+            parse_mode="Markdown",
+        )
     except Exception as e:
         err = str(e)
         if "expired" in err.lower() or "401" in err:
