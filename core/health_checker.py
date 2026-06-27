@@ -22,8 +22,6 @@ def check_cookie_health(cookie_content: str, session: requests.Session = None) -
     Performs a synchronous, read-only health check on any supported cookie format.
     This function does NOT modify the session. It uses cookies for a one-time request.
     """
-    active_session = session if session is not None else get_new_session()
-
     if not cookie_content or not cookie_content.strip():
         return ValidationResult(status=PrivatizationStatus.INVALID_FORMAT, message="Cookie content is empty")
 
@@ -37,11 +35,14 @@ def check_cookie_health(cookie_content: str, session: requests.Session = None) -
 
     logger.info(f"Health Check: Testing cookies: {list(cookie_dict.keys())}")
 
+    # Flaw 4: use the caller-supplied session when given; create (and own) one otherwise.
+    # Previously active_session was computed but then a second session was created and used,
+    # making the session parameter silently ignored and leaking the extra session.
+    owns_session = session is None
+    active_session = get_new_session() if owns_session else session
+
     try:
-        # Use the cookies for this one request only. DO NOT load them into the session jar.
-        # Create a session with specific headers to avoid zstd issues
-        temp_session = get_new_session()
-        response = temp_session.get(
+        response = active_session.get(
             PROFILE_GATE_URL,
             cookies=cookie_dict,
             timeout=10,
@@ -63,12 +64,11 @@ def check_cookie_health(cookie_content: str, session: requests.Session = None) -
         # Handle specific zstd compression errors
         if 'zstd' in error_str or 'decompressobj' in error_str:
             logger.warning("Health Check: zstd compression issue detected, retrying with alternative method...")
+            fallback_session = requests.Session()
             try:
-                # Retry with a fresh session and no compression
-                fallback_session = requests.Session()
                 fallback_session.headers.update({
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0",
-                    "Accept-Encoding": "identity"  # No compression
+                    "Accept-Encoding": "identity"
                 })
                 response = fallback_session.get(
                     PROFILE_GATE_URL,
@@ -76,7 +76,6 @@ def check_cookie_health(cookie_content: str, session: requests.Session = None) -
                     timeout=15,
                     allow_redirects=False
                 )
-                
                 if response.status_code == 200:
                     return ValidationResult(status=PrivatizationStatus.SUCCESS, message="Cookie is healthy")
                 elif response.status_code in [301, 302, 307, 308]:
@@ -84,10 +83,15 @@ def check_cookie_health(cookie_content: str, session: requests.Session = None) -
                         return ValidationResult(status=PrivatizationStatus.FAILURE_LOGIN_REDIRECT, message="Cookie expired (redirected to login)")
                 else:
                     return ValidationResult(status=PrivatizationStatus.FAILURE_INVALID_COOKIE, message=f"Status code {response.status_code}")
-                    
             except Exception as fallback_error:
                 logger.error(f"Fallback health check also failed: {fallback_error}")
                 return ValidationResult(status=PrivatizationStatus.FAILURE_NETWORK, message="Compression error - unable to check")
-        
+            finally:
+                fallback_session.close()
+
         logger.error(f"Health check failed due to a network error: {e}")
         return ValidationResult(status=PrivatizationStatus.FAILURE_NETWORK, message=f"Network error: {str(e)}")
+
+    finally:
+        if owns_session:
+            active_session.close()

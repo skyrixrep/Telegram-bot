@@ -34,13 +34,9 @@ def parse_netscape_to_dict(cookie_content: str) -> dict:
             fields = line_to_parse.split('\t')
             if len(fields) >= 7:
                 name = fields[5]
+                # Flaw 8: do NOT URL-decode — Netflix tokens (NetflixId, SecureNetflixId)
+                # must be sent raw/encoded; decoding them breaks authentication.
                 value = fields[6]
-                # Handle URL-encoded values by decoding them
-                import urllib.parse
-                try:
-                    value = urllib.parse.unquote(value)
-                except Exception:
-                    pass  # Keep original value if decoding fails
                 cookie_dict[name] = value
     return cookie_dict
 

@@ -97,6 +97,10 @@ async def nettrix_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await _safe_reply(update.message, "⛔ You are not authorised to use this feature.")
         return ConversationHandler.END
 
+    # Flaw 2: cancel any in-flight prov task before wiping state (allow_reentry orphan)
+    pt = context.user_data.get("nx_prov_task")
+    if pt and not pt.done():
+        pt.cancel()
     context.user_data.clear()
     await _safe_reply(
         update.message,
@@ -129,6 +133,11 @@ async def nettrix_receive_file(update: Update, context: ContextTypes.DEFAULT_TYP
     doc = update.message.document
     if not doc:
         await _safe_reply(update.message, "❌ Please send a `.txt` file or paste cookies as text.")
+        return NX_WAIT_COOKIES
+
+    # Flaw 6: reject oversized files before downloading (Telegram allows up to 20 MB)
+    if doc.file_size and doc.file_size > 512 * 1024:
+        await _safe_reply(update.message, "❌ File too large. Please send a plain `.txt` cookie file (max 512 KB).")
         return NX_WAIT_COOKIES
 
     tg_file   = await doc.get_file()
@@ -286,6 +295,7 @@ async def nettrix_receive_confirm(update: Update, context: ContextTypes.DEFAULT_
         pt = context.user_data.get("nx_prov_task")
         if pt and not pt.done():
             pt.cancel()
+        context.user_data.clear()
         await _safe_reply(
             update.message,
             "❌ Cancelled. Send /nettrix to begin again.",
@@ -303,14 +313,18 @@ async def nettrix_receive_confirm(update: Update, context: ContextTypes.DEFAULT_
     try:
         prov_task = context.user_data.get("nx_prov_task")
 
-        # Try to use the pre-warmed provision token first
+        # Flaw 3: wrap every provision await in a timeout so the handler can't hang
         if prov_task is not None:
             try:
-                prov = await prov_task
-            except (asyncio.CancelledError, Exception):
-                prov = await _run_blocking(ale_provision, cookies, selected["guid"])
+                prov = await asyncio.wait_for(asyncio.shield(prov_task), timeout=30)
+            except (asyncio.CancelledError, asyncio.TimeoutError, Exception):
+                prov = await asyncio.wait_for(
+                    _run_blocking(ale_provision, cookies, selected["guid"]), timeout=30
+                )
         else:
-            prov = await _run_blocking(ale_provision, cookies, selected["guid"])
+            prov = await asyncio.wait_for(
+                _run_blocking(ale_provision, cookies, selected["guid"]), timeout=30
+            )
 
         enc_email = await _run_blocking(
             encrypt_email, email, prov["kid"], prov["wrapped_key"], prov["private_key"]
@@ -330,7 +344,14 @@ async def nettrix_receive_confirm(update: Update, context: ContextTypes.DEFAULT_
         typename   = mutation.get("__typename", "")
         error_code = mutation.get("errorCode", "")
 
-        if gql_errors:
+        # Flaw 5: treat an unrecognised mutation key as an error, not silent success
+        if not mutation:
+            await _safe_reply(
+                update.message,
+                "❌ Unexpected response from Netflix. Send /nettrix to try again.",
+                parse_mode="Markdown",
+            )
+        elif gql_errors:
             err_msg = gql_errors[0].get("message", "Unknown GraphQL error")
             await _safe_reply(
                 update.message,
@@ -371,11 +392,18 @@ async def nettrix_receive_confirm(update: Update, context: ContextTypes.DEFAULT_
             msg = f"❌ Unexpected error:\n`{err}`"
         await _safe_reply(update.message, msg, parse_mode="Markdown")
 
+    # Flaw 7: drop cookies and all user state once the conversation is over
+    context.user_data.clear()
     return ConversationHandler.END
 
 
 async def nettrix_cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """/cancel fallback inside the nettrix conversation."""
+    # Flaw 1: cancel any in-flight prov task so it doesn't dangle after /cancel
+    pt = context.user_data.get("nx_prov_task")
+    if pt and not pt.done():
+        pt.cancel()
+    context.user_data.clear()
     await _safe_reply(
         update.message,
         "❌ Cancelled. Send /nettrix to begin again.",
