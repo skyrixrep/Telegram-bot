@@ -28,10 +28,14 @@ from cryptography.hazmat.backends import default_backend as _backend
 import config
 
 # ─── Shared HTTP session with keep-alive ────────────────────────────────────────
+# NOTE: Session cookies are cleared before/after every user-scoped request so
+# that Set-Cookie responses from one user's session never bleed into another's.
+# The lock serialises access since _run_blocking() fires these from a thread pool.
 _HTTP = requests.Session()
 _adapter = HTTPAdapter(pool_connections=10, pool_maxsize=20, max_retries=0)
 _HTTP.mount("https://", _adapter)
 _HTTP.mount("http://", _adapter)
+_HTTP_LOCK = threading.Lock()
 
 # ─── RSA-2048 key pre-generation pool ───────────────────────────────────────────
 # RSA keygen takes ~0.3–1 s. A background thread keeps a small pool ready so
@@ -78,18 +82,21 @@ def fetch_profiles(cookies: dict) -> list:
     Returns an empty list on failure.
     """
     try:
-        r = _HTTP.get(
-            "https://www.netflix.com/profiles/manage",
-            cookies=cookies,
-            headers={
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-                "Accept-Encoding": "identity",
-                "User-Agent": config.USER_AGENT,
-                "Referer": "https://www.netflix.com/browse",
-                "Upgrade-Insecure-Requests": "1",
-            },
-            timeout=config.REQUEST_TIMEOUT,
-        )
+        with _HTTP_LOCK:
+            _HTTP.cookies.clear()
+            r = _HTTP.get(
+                "https://www.netflix.com/profiles/manage",
+                cookies=cookies,
+                headers={
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                    "Accept-Encoding": "identity",
+                    "User-Agent": config.USER_AGENT,
+                    "Referer": "https://www.netflix.com/browse",
+                    "Upgrade-Insecure-Requests": "1",
+                },
+                timeout=config.REQUEST_TIMEOUT,
+            )
+            _HTTP.cookies.clear()
     except Exception:
         return []
 
@@ -186,13 +193,16 @@ def ale_provision(cookies: dict, profile_guid: str) -> dict:
         },
     }
 
-    r = _HTTP.post(
-        config.NF_EMAIL_GRAPHQL_URL,
-        headers=headers,
-        cookies=cookies,
-        json=payload,
-        timeout=config.REQUEST_TIMEOUT,
-    )
+    with _HTTP_LOCK:
+        _HTTP.cookies.clear()
+        r = _HTTP.post(
+            config.NF_EMAIL_GRAPHQL_URL,
+            headers=headers,
+            cookies=cookies,
+            json=payload,
+            timeout=config.REQUEST_TIMEOUT,
+        )
+        _HTTP.cookies.clear()
     data = r.json()
 
     if "errors" in data and data["errors"]:
@@ -295,11 +305,14 @@ def update_profile_email(
             "persistedQuery": {"id": config.NF_EMAIL_UPDATE_ID, "version": 102}
         },
     }
-    r = _HTTP.post(
-        config.NF_EMAIL_GRAPHQL_URL,
-        headers=headers,
-        cookies=cookies,
-        json=payload,
-        timeout=config.REQUEST_TIMEOUT,
-    )
+    with _HTTP_LOCK:
+        _HTTP.cookies.clear()
+        r = _HTTP.post(
+            config.NF_EMAIL_GRAPHQL_URL,
+            headers=headers,
+            cookies=cookies,
+            json=payload,
+            timeout=config.REQUEST_TIMEOUT,
+        )
+        _HTTP.cookies.clear()
     return r.json()
